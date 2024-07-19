@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+
+        <!-- Définition des vues -->
+        <record id="view_order_analysis_tree" model="ir.ui.view">
+            <field name="name">order.analysis.tree</field>
+            <field name="model">analysis.analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Order Analysis">
+                    <field name="date"/>
+                    <field name="weekday"/>
+                    <field name="time_period"/>
+                    <field name="order_count"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="form_order_analysis_tree" model="ir.ui.view">
+            <field name="name">order.analysis.tree</field>
+            <field name="model">analysis.analysis</field>
+            <field name="arch" type="xml">
+                <form string=" Form Order Analysis">
+                    <group>
+                    <field name="date"/>
+                    <field name="weekday"/>
+                    <field name="time_period"/>
+                    <field name="order_count"/>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_order_analysis_graph" model="ir.ui.view">
+            <field name="name">order.analysis.graph</field>
+            <field name="model">analysis.analysis</field>
+            <field name="arch" type="xml">
+                <graph string="Order Analysis">
+                    <field name="time_period" type="row"/>
+                    <field name="weekday" type="row"/>
+                    <field name="date" type="row"/>
+                    <field name="order_count" type="measure"/>
+
+                </graph>
+            </field>
+        </record>
+
+        <!-- Définition des actions -->
+        <record id="action_order_analysis" model="ir.actions.act_window">
+            <field name="name">Order Analysis</field>
+            <field name="res_model">analysis.analysis</field>
+            <field name="view_mode">tree,graph,form</field>
+            <field name="view_id" ref="view_order_analysis_tree"/>
+        </record>
+
+        <record id="action_order_form" model="ir.actions.act_window">
+            <field name="name">Form Order Analysis</field>
+            <field name="res_model">analysis.analysis</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="form_order_analysis_tree"/>
+        </record>
+
+        <!-- Définition des menus -->
+        <menuitem id="menu_order_analysis_root" name="Order Analysis Graph" sequence="10"/>
+        <menuitem id="menu_order_analysis" name="Order Analysis" parent="menu_order_analysis_root" action="action_order_analysis"/>
+        <menuitem id="menu_form_order_analysis" name="Form Order Analysis" parent="menu_order_analysis_root"
+                  action="action_order_form"/>
+
+    </data>
+</odoo>
