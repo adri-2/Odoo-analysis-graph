@@ -7,15 +7,19 @@
             <field name="model">analysis.analysis</field>
             <field name="arch" type="xml">
                 <tree string="Order Analysis">
+                    <groud>
                     <field name="date"/>
                     <field name="weekday"/>
                     <field name="time_period"/>
                     <field name="order_count"/>
+                    </groud>
+                    <groud>
                      <field name="sale_order_ids">
-                        <field name="name"/>
-                        <field name="date_order"/>
-                        <field name="amount_total"/>
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="amount_total"/>
                      </field>
+                    </groud>
                 </tree>
             </field>
         </record>
@@ -29,11 +33,13 @@
                     <field name="date"/>
                     <field name="weekday"/>
                     <field name="time_period"/>
+                        </group>
+                    <group>
                     <field name="order_count"/>
                         <field name="sale_order_ids">
-                            <field name="name"/>
-                            <field name="date_order"/>
-                            <field name="amount_total"/>
+                        <field name="name"/>
+                        <field name="date_order"/>
+                        <field name="amount_total"/>
                      </field>
 
                     </group>
@@ -72,15 +78,12 @@
             <field name="view_id" ref="form_order_analysis_tree"/>
         </record>
 
-
         <!-- Définition des menus -->
         <menuitem id="menu_order_analysis_root" name="Order Analysis Graph" sequence="10"/>
         <menuitem id="menu_order_analysis" name="Order Analysis" parent="menu_order_analysis_root"
                   action="action_order_analysis"/>
         <menuitem id="menu_form_order_analysis" name="Form Order Analysis" parent="menu_order_analysis_root"
                   action="action_order_form"/>
-
-
 
     </data>
 </odoo>
