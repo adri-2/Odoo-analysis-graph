@@ -26,7 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
-        #'data/data_sale.xml',
+        'data/ir_cron_data.xml',
         #'views/views_sale.xml',
     ],
     # only loaded in demonstration mode
