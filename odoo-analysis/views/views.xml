@@ -47,7 +47,7 @@
             <field name="model">analysis.analysis</field>
             <field name="arch" type="xml">
                 <graph string="Order Analysis">
-                    <field name="time_period" type="row"/>
+                    <field name="time_period" type="row" nolabel="true"/>
                     <field name="weekday" type="row"/>
                     <field name="date" type="row"/>
                     <field name="order_count" type="measure"/>
@@ -56,14 +56,15 @@
         </record>
 
         <record id="action_order_analysis" model="ir.actions.act_window">
-            <field name="name">Order Analysis</field>
+            <field name="name">Analyse des commandes</field>
             <field name="res_model">analysis.analysis</field>
             <field name="view_mode">tree,graph,form</field>
             <field name="view_id" ref="view_order_analysis_tree"/>
         </record>
 
-        <menuitem id="menu_order_analysis_root" name="Order Analysis Graph" sequence="10"/>
-        <menuitem id="menu_order_analysis" name="Order Analysis" parent="menu_order_analysis_root"
-                  action="action_order_analysis"/>
+        <menuitem id="sale" name="commande Graph" sequence="10"/>
+        <menuitem id="menu_order_analysis" name="commande" parent="sale.menu_sale_report"
+                  sequence="1"
+                  groups="point_of_sale.group_pos_manager"/>
     </data>
 </odoo>
